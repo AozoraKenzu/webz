@@ -1,0 +1,83 @@
+#!/bin/bash
+
+###########################################################################################################
+
+# Install LAMP Stack and Softaculous Webuzo
+
+# Description -
+
+# About Webuzo :
+
+#   Webuzo is a Single User Control Panel which helps users deploy Web Apps (WordPress, Joomla, Drupal, etc)
+
+#   or System Apps (Apache, NGINX, PHP, Java, MongoDB, etc) on their virtual machines or in the cloud.
+
+#
+
+# About LAMP Stack :
+
+#   LAMP refers to the first letters of Linux (Operating system), Apache, MySQL, and PHP, PERL or Python.
+
+###########################################################################################################
+
+# Install LAMP Stack application using Webuzo
+
+function install_webuzo(){
+
+       
+
+    # Fetch the Webuzo Installer
+
+    wget -N http://files.webuzo.com/install.sh >> /root/webuzo-install.log 2>&1
+
+   
+
+    # Modify Permissions
+
+    chmod 0755 install.sh >> /root/webuzo-install.log 2>&1
+
+   
+
+    # Execute
+
+    ./install.sh --install=apache,mysql,php54 >> /root/webuzo-install.log 2>&1
+
+   
+
+    # Clean Up
+
+    rm -rf install.sh >> /root/webuzo-install.log 2>&1
+
+   
+
+}
+
+#########################################################
+
+#	Installing LAMP Stack using Softaculous Webuzo
+
+#########################################################
+
+install_webuzo
+
+echo " "
+
+echo "-------------------------------------"
+
+echo " Installation Completed "
+
+echo "-------------------------------------"
+
+echo "Congratulations, LAMP Stack has been successfully installed"
+
+echo " "
+
+echo "You can now configure LAMP Stack and Softaculous Webuzo at the following URL :"
+
+echo "http://$ip:2004/"
+
+echo " "
+
+echo "Thank you for choosing Softaculous Webuzo !"
+
+echo " "
